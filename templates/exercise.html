@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise Details</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .exercise-container {
+            margin-top: 2rem;
+        }
+        .exercise-image {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">{{ details.name }}</h1>
+        <div class="exercise-container">
+            <p>{{ details.description }}</p>
+            {% if details.images %}
+                <h3>Images:</h3>
+                {% for image in details.images %}
+                    <img src="{{ image.image }}" alt="Exercise Image" class="exercise-image">
+                {% endfor %}
+            {% endif %}
+        </div>
+        <a href="/exercises/{{ body_part }}" class="btn btn-primary mt-3">Back to Exercises</a>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
